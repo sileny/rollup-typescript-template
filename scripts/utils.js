@@ -37,7 +37,7 @@ exports.fuzzyMatchTarget = (partialTargets, includeAllMatching) => {
   }
 };
 
-exports.getArgv = () => require('minimist')(process.argv.slice(2));
+exports.getArgv = () => require('mri')(process.argv.slice(2));
 
 // 运行全局命令
 exports.run = (bin, args, opts = {}) => execa(bin, args, { stdio: 'inherit', ...opts });
