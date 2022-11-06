@@ -1,5 +1,5 @@
 import path from 'path';
-import ts from 'rollup-plugin-typescript2';
+import ts from '@rollup/plugin-typescript';
 import replace from '@rollup/plugin-replace';
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
@@ -95,14 +95,10 @@ function createConfig(format, output, plugins = []) {
     external,
     plugins: [
       ts({
-        tsconfig: path.resolve(__dirname, 'tsconfig.json'),
-        cacheRoot: path.resolve(__dirname, 'node_modules/.rts2_cache'), // 指定缓存目录
-        tsconfigOverride: {
-          compilerOptions: {
-            target: isNodeBuild ? 'es2019' : 'es5',
-            sourceMap: output.sourcemap,
-            declaration: shouldEmitDeclarations
-          }
+        compilerOptions: {
+          target: isNodeBuild ? 'esnext' : 'es5',
+          sourceMap: output.sourcemap,
+          declaration: shouldEmitDeclarations
         }
       }),
       createReplacePlugin(

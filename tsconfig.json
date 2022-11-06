@@ -6,7 +6,7 @@
     "experimentalDecorators": true,
     "sourceMap": false,
     "module": "ESNext",
-    "target": "es2016", // for esm
+    "target": "esnext", // for esm。可以不配置，`rollup.config.js`里配置了`compilerOptions`属性
     "noImplicitAny": false,
     "removeComments": true,
     "allowJs": false,

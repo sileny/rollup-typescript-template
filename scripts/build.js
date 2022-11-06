@@ -34,11 +34,6 @@ const commit = execa.sync('git', ['rev-parse', 'HEAD']).stdout.slice(0, 7);
 run();
 
 async function run() {
-  if (isRelease) {
-    // 移除构建缓存
-    await fs.remove(path.resolve(__dirname, '../node_modules/.rts2_cache'));
-  }
-
   if (!targets.length) {
     await buildAll(allTargets);
     checkAllSizes(allTargets);
