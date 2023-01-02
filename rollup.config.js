@@ -159,7 +159,7 @@ function createProductionConfig(format) {
 }
 
 function createMinifiedConfig(format) {
-  const { terser } = require('rollup-plugin-terser');
+  const { terser } = require('@rollup/plugin-terser');
   return createConfig(
     format,
     {
